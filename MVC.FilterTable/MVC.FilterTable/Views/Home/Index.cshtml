@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<br />
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-inline pull-right">
+            <label>Search</label>
+            <input type="text" class="form-control" id="txtSearch" />
+        </div>
+    </div>
+
+    <div id="grdUsers"></div>
+</div>
+
+<script>
+    $(() => {
+        getUsers();
+        $('#txtSearch').on('keyup', () => {
+            getUsers();
+        });
+    });
+
+    function getUsers() {
+        $.ajax({
+            url: '@Url.Action("SearchUser", "Home")',
+            dataType: 'html',
+            method: 'GET',
+            data: { searchText: $('#txtSearch').val },
+            success: function (res) {
+                $('#grdUsers').html('').html(res);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+
+        })
+    }
+</script>
+

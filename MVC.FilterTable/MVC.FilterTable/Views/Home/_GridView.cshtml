@@ -1,0 +1,26 @@
+﻿@model List<MVC.FilterTable.Models.UserModel>
+
+<div class="col-sm-12">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Profesion</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Age</td>
+                    <td>@item.Profesion</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
